@@ -1,8 +1,36 @@
-let username = 'jishu verma';
-console.log(username);
+type One = string;
+type Two = string | number;
+type Three = 'hello';
 
-let a: number = 12;
-let b: number = 4;
-let c: number = 2;
+// convert to more or less specific
+let a: One = 'hello';
+let b = a as Two; // less specific
+let c = a as Three; // more specific
 
-console.log(a / b);
+let d = <One>'world';
+let e = <string | number>'world';
+
+const addOrConcat = (
+  a: number,
+  b: number,
+  c: 'add' | 'concat'
+): number | string => {
+  if (c === 'add') return a + b;
+  return '' + a + b;
+};
+
+let myVal: string = addOrConcat(2, 2, 'concat') as string;
+
+// Be careful! TS sees no problem - but a string is returned
+let nextVal: number = addOrConcat(2, 2, 'concat') as number;
+
+// Two Assertions
+10 as unknown as string;
+
+// The DOM
+const img = document.querySelector('img')!;
+const myImg = document.getElementById('#img') as HTMLImageElement;
+const nextImg = <HTMLImageElement>document.getElementById('#img');
+
+img.src;
+myImg.src;
