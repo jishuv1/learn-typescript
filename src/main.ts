@@ -1,8 +1,18 @@
-let username = 'jishu verma';
-console.log(username);
+let username: string = 'jishu';
+let meaningOfLife: number;
+let isLoading: boolean;
+let album: any;
 
-let a: number = 12;
-let b: number = 4;
-let c: number = 2;
+username = 'jigyashu';
+meaningOfLife = 100;
+isLoading = false;
+album = 1989;
 
-console.log(a / b);
+const sum = (a: number, b: number) => {
+  return a + b;
+};
+
+let postId: string | number;
+let isActive: number | boolean;
+
+let re: RegExp = /\w+/g;
